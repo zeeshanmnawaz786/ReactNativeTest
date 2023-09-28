@@ -1,21 +1,58 @@
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity,
+} from 'react-native';
 import React from 'react';
-import {StyleSheet, View, Image, TouchableOpacity, Text} from 'react-native';
 
 export default function Home({navigation}) {
   return (
     <View style={styles.container}>
-      <View style={styles.imageContainer}>
-        <Image source={require('../assets/bbsul.png')} style={styles.image} />
-      </View>
+      <Text>Home</Text>
+
       <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate('Login')}>
-        <Text style={styles.buttonText}>Sign in </Text>
+        onPress={() => {
+          navigation.navigate('Parent');
+        }}
+        style={styles.button}>
+        <Text style={{color: 'white', textAlign: 'center'}}>Parent</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate('Register')}>
-        <Text style={styles.buttonText}>Sign up</Text>
+        onPress={() => {
+          navigation.navigate('Child1');
+        }}
+        style={styles.button}>
+        <Text style={{color: 'white', textAlign: 'center'}}>Child1</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('Child2');
+        }}
+        style={styles.button}>
+        <Text style={{color: 'white', textAlign: 'center'}}>Child2</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('Child3');
+        }}
+        style={styles.button}>
+        <Text style={{color: 'white', textAlign: 'center'}}>Child3</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('Child4');
+        }}
+        style={styles.button}>
+        <Text style={{color: 'white', textAlign: 'center'}}>Child4</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('Child5');
+        }}
+        style={styles.button}>
+        <Text style={{color: 'white', textAlign: 'center'}}>Child5</Text>
       </TouchableOpacity>
     </View>
   );
@@ -24,25 +61,14 @@ export default function Home({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'blue',
-    alignItems: 'center',
     justifyContent: 'center',
-  },
-  imageContainer: {
     alignItems: 'center',
-    justifyContent: 'center',
   },
   button: {
-    backgroundColor: 'white',
+    backgroundColor: 'blue',
     padding: 15,
     borderRadius: 5,
     width: '80%',
-    alignItems: 'center',
-    marginBottom: 15,
-  },
-  buttonText: {
-    color: 'blue',
-    fontWeight: 'bold',
-    textAlign: 'center',
+    marginBottom: 20,
   },
 });

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   TextInput,
@@ -7,46 +7,53 @@ import {
   Image,
   Text,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default function Register() {
+export default function SubmitData({navigation}) {
+  const [userfirstName, setFirstName] = useState('');
+  const [userlastName, setLastName] = useState('');
+  const [useremail, setEmail] = useState('');
+  const [userphoneNumber, setPhoneNumber] = useState('');
+
+  const handleSubmit = () => {
+    navigation.navigate('Dashboard', {
+      userfirstName: userfirstName,
+      userlastName: userlastName,
+      useremail: useremail,
+      userphoneNumber: userphoneNumber,
+    });
+  };
+
   return (
     <View style={styles.container}>
-      <View>
-        <Image source={require('../assets/bbsul.png')} style={styles.image} />
-      </View>
+      <Text style={styles.topHeadingText}>Login to your Account</Text>
+      <TextInput
+        onChangeText={text => setFirstName(text)}
+        style={styles.input}
+        placeholder="Enter your first name...."
+        placeholderTextColor="gray"
+      />
+      <TextInput
+        onChangeText={text => setLastName(text)}
+        style={styles.input}
+        placeholder="Enter your last name...."
+        placeholderTextColor="gray"
+      />
+      <TextInput
+        onChangeText={text => setEmail(text)}
+        style={styles.input}
+        placeholder="Enter your email...."
+        placeholderTextColor="gray"
+      />
+      <TextInput
+        onChangeText={text => setPhoneNumber(text)}
+        style={styles.input}
+        placeholder="Enter your phone number...."
+        placeholderTextColor="gray"
+      />
 
-      <Text style={styles.topHeadingText}>Create your Account</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Email"
-        placeholderTextColor="gray"
-        color="black"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        secureTextEntry
-        placeholderTextColor="gray"
-        color="black"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Confirm Password"
-        secureTextEntry
-        placeholderTextColor="gray"
-        color="black"
-      />
-      <TouchableOpacity style={styles.button}>
-        <Text style={{color: 'white', textAlign: 'center'}}>Sign up</Text>
+      <TouchableOpacity onPress={handleSubmit} style={styles.button}>
+        <Text style={{color: 'white', textAlign: 'center'}}>Submit</Text>
       </TouchableOpacity>
-      <Text style={styles.bottomHeadingText}>Or Signup with</Text>
-
-      <View style={styles.iconRow}>
-        <Icon name="google" size={30} color="red" style={styles.icon} />
-        <Icon name="twitter" size={30} color="skyblue" style={styles.icon} />
-        <Icon name="facebook" size={30} color="blue" style={styles.icon} />
-      </View>
     </View>
   );
 }
@@ -65,6 +72,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     paddingLeft: 10,
     borderRadius: 5,
+    color: 'black',
   },
   topHeadingText: {
     fontSize: 20,

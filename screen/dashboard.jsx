@@ -2,15 +2,22 @@ import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
 
 export default function Dashboard({route}) {
-  const {email, pass} = route.params;
+  const {userfirstName, userlastName, useremail, userphoneNumber} =
+    route.params;
 
   return (
     <View style={styles.container}>
       <View style={styles.textContainer}>
-        <Text style={styles.text}>Email: {email}</Text>
+        <Text style={styles.text}>First Name: {userfirstName}</Text>
       </View>
       <View style={styles.textContainer}>
-        <Text style={styles.text}>Password: {pass}</Text>
+        <Text style={styles.text}>Last Name: {userlastName}</Text>
+      </View>
+      <View style={styles.textContainer}>
+        <Text style={styles.text}>Email: {useremail}</Text>
+      </View>
+      <View style={styles.textContainer}>
+        <Text style={styles.text}>Phone Number: {userphoneNumber}</Text>
       </View>
     </View>
   );
